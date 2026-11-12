@@ -1,0 +1,130 @@
+Rows: 7043, columns: 21
+Duplicate customerIDs: 0
+Blank TotalCharges: 11 | their tenure values: [np.int64(0)]
+
+Overall churn rate: 26.5% (1869 of 7043)
+Monthly revenue from churned customers: 139,131 of 456,117 (30.5%)
+Avg tenure churned vs retained: 18.0 vs 37.6 months
+Avg monthly charge churned vs retained: 74.44 vs 61.27
+
+Churn by Contract:
+                count churn_rate
+Contract                        
+Month-to-month   3875      42.7%
+One year         1473      11.3%
+Two year         1695       2.8%
+
+Churn by TenureBand:
+              count churn_rate
+TenureBand                    
+0-12 months    2186      47.4%
+13-24 months   1024      28.7%
+25-48 months   1594      20.4%
+49+ months     2239       9.5%
+
+Churn by InternetService:
+                 count churn_rate
+InternetService                  
+DSL               2421      19.0%
+Fiber optic       3096      41.9%
+No                1526       7.4%
+
+Churn by PaymentMethod:
+                           count churn_rate
+PaymentMethod                              
+Bank transfer (automatic)   1544      16.7%
+Credit card (automatic)     1522      15.2%
+Electronic check            2365      45.3%
+Mailed check                1612      19.1%
+
+Churn by TechSupport:
+             count churn_rate
+TechSupport                  
+No            4999      31.2%
+Yes           2044      15.2%
+
+Churn by OnlineSecurity:
+                count churn_rate
+OnlineSecurity                  
+No               5024      31.3%
+Yes              2019      14.6%
+
+Churn by SeniorCitizen:
+               count churn_rate
+SeniorCitizen                  
+No              5901      23.6%
+Yes             1142      41.7%
+
+Churn by ChargeBand:
+            count churn_rate
+ChargeBand                  
+Under 35     1735      10.9%
+35-70        1725      23.9%
+70-90        1844      37.8%
+Over 90      1739      32.8%
+
+Churn by PaperlessBilling:
+                  count churn_rate
+PaperlessBilling                  
+No                 2872      16.3%
+Yes                4171      33.6%
+
+Churn by AutoPay:
+         count churn_rate
+AutoPay                  
+No        3977      34.7%
+Yes       3066      16.0%
+
+Churn by Partner:
+         count churn_rate
+Partner                  
+No        3641      33.0%
+Yes       3402      19.7%
+
+Churn by Dependents:
+            count churn_rate
+Dependents                  
+No           4933      31.3%
+Yes          2110      15.5%
+
+Logistic Regression: ROC-AUC = 0.846
+              precision    recall  f1-score   support
+
+    Retained       0.91      0.73      0.81      1294
+     Churned       0.52      0.80      0.63       467
+
+    accuracy                           0.75      1761
+   macro avg       0.71      0.77      0.72      1761
+weighted avg       0.81      0.75      0.76      1761
+
+
+Random Forest: ROC-AUC = 0.845
+              precision    recall  f1-score   support
+
+    Retained       0.90      0.77      0.83      1294
+     Churned       0.54      0.77      0.63       467
+
+    accuracy                           0.77      1761
+   macro avg       0.72      0.77      0.73      1761
+weighted avg       0.81      0.77      0.78      1761
+
+Selected model: Logistic Regression (ROC-AUC 0.846)
+
+Top 10 drivers:
+tenure                        -1.157
+MonthlyCharges                -0.932
+InternetService_Fiber optic    0.747
+InternetService_No            -0.673
+Contract_Two year             -0.593
+TotalCharges                   0.516
+Contract_One year             -0.298
+StreamingMovies_Yes            0.264
+StreamingTV_Yes                0.221
+MultipleLines_Yes              0.187
+
+Risk level counts:
+           customers  actual_churn_rate
+RiskLevel                              
+Low             3590           0.067967
+Medium          1693           0.304194
+High            1760           0.630682
